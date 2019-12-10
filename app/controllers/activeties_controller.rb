@@ -1,2 +1,0 @@
-class ActivetiesController < ApplicationController
-end
