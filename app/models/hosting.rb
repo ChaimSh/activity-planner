@@ -1,2 +1,0 @@
-class Hosting < ApplicationRecord
-end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-  resources :hostings
+  resources :events
   root 'sessions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
