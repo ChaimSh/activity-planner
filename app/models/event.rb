@@ -3,7 +3,7 @@ class Event < ApplicationRecord
     belongs_to :activity
 
 
-    validates :date, presence: true
+    # validates :date, presence: true
     validates_associated :activity
 
     def activity_attributes=(activity_params)

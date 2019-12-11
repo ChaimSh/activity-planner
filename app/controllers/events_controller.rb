@@ -6,7 +6,10 @@ class EventsController < ApplicationController
     end
 
     def index
+        raise params.inspect
+        if params[:activity_id] #check if nested
         @events = Event.all
+        end
     end
 
     def new
@@ -25,7 +28,7 @@ class EventsController < ApplicationController
 
     private 
     def event_params
-    params.require(:event).permit(:name, :date, :activety_id, :activity_attributes[:name, :description, :duration, :user_id])
+    params.require(:event).permit(:name, :date, :location_id, :activety_id, activity_attributes:[:name, :description, :duration, :user_id])
     end
 
 
