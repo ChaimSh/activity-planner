@@ -1,0 +1,14 @@
+<h1>New Activity </h1>
+<%= form_for @activity do |f|%>
+<%=f.label :name%>
+<%=f.text_field :name%><br />
+
+<%=f.label :duration, "Duration in Minutes"%>
+<%=f.number_field :duration%><br />
+
+<%=f.label :description%>
+<%=f.text_field :description%>
+
+<%=f.submit%>
+
+<%end%>
