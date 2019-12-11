@@ -1,0 +1,9 @@
+<h1>All Events</h1>
+
+<ul>
+<% @events.order(:date).each do |event| %>
+<li> <%=link to event.name, event_path(event) %><br>
+    <%=event.date%> <br>
+    <%=event.location.name%></li>
+    <%end%>
+</ul>
