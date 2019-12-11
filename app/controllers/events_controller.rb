@@ -6,6 +6,7 @@ class EventsController < ApplicationController
     end
 
     def index
+        
     end
 
     def new

@@ -13,7 +13,7 @@ before_action :set_activity, only: [:show]
   end
 
   def create
-    @activity = current_user.locations.build(activity_params)
+    @activity = current_user.activities.build(activity_params)
     if @activity.save
         redirect_to activity_path(@activity)
     else
