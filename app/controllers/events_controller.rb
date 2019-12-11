@@ -11,9 +11,16 @@ class EventsController < ApplicationController
 
     def new
         @event = Event.new
+        @event.build_activity
     end
 
     def create
+        @event = Event.new(event_params)
+        if @event.save
+            redirect_to event_path(@event)
+        else
+            render :new
+        end
     end
 
     private 
