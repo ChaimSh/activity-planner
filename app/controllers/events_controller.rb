@@ -6,10 +6,11 @@ class EventsController < ApplicationController
     end
 
     def index
-        
+        @events = Event.all
     end
 
     def new
+        @event = Event.new
     end
 
     def create
