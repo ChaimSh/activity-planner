@@ -1,13 +1,5 @@
-  
-<%= form_for @location do |f| %>
+<h1><%= @location.name %></h1>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
+<%=@location.address%>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-
-  <%= f.submit%>
-
-<% end %>
+<%= link_to "Edit Location", edit_location_path(@location) %>
