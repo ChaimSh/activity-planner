@@ -1,0 +1,2 @@
+<%= f.label :activity_id, "Select an existing activity:"%>
+<%f.collection_select :activity_id, Activity.all, :id, :name, include_blank :true %>

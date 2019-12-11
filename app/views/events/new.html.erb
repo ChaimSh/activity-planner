@@ -1,6 +1,6 @@
 <h1>New Event</h1>
 
-<%= form_for @event do |f|%>
+<%= form_for [@activity, @event] do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name%><br>
 
@@ -8,7 +8,10 @@
 <%=f.date_field :date%><br>
 
 <%=f.label :location_id%>
-<%=f.collection_select :location_id, current_user.locations, :id, :name %>
+<%=f.collection_select :location_id, current_user.locations, :id, :name %><br>
+
+<%=activity_form_option(f)%>
+
 
 <%=f.submit%>
 
