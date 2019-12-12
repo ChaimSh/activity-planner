@@ -6,19 +6,31 @@ class EventsController < ApplicationController
     end
 
     def index
-        raise params.inspect
-        if params[:activity_id] #check if nested
-        @events = Event.all
+        #check if nested                     #find nested resource
+        if params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
+            @events = @activity.events
+    
+        else
+            @events = Event.all
         end
     end
 
     def new
+      if params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
+        @event = activity.events.build
+      else
         @event = Event.new
         @event.build_activity
+      end
     end
 
     def create
-        @event = Event.new(event_params)
+        if params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
+          @event = @activity.events.build(event_params)
+        else
+          @event = Event.new(event_params)
+        end
+
         if @event.save
             redirect_to event_path(@event)
         else
@@ -28,7 +40,7 @@ class EventsController < ApplicationController
 
     private 
     def event_params
-    params.require(:event).permit(:name, :date, :location_id, :activety_id, activity_attributes:[:name, :description, :duration, :user_id])
+      params.require(:event).permit(:name, :date, :location_id, :activity_id, activity_attributes:[:name, :description, :duration, :user_id])
     end
 
 

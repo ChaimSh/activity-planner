@@ -10,7 +10,7 @@
 <%=f.label :location_id%>
 <%=f.collection_select :location_id, current_user.locations, :id, :name %><br>
 
-<%# <%=activity_form_option(f)%> %>
+<%=activity_form_option(f)%>
 
 
 <%=f.submit%>

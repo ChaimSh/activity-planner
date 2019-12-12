@@ -1,2 +1,22 @@
 <%= f.label :activity_id, "Select an existing activity:"%>
 <%f.collection_select :activity_id, Activity.all, :id, :name, include_blank :true %>
+
+<h3>Or Create a new Activity:</h3>
+    
+  <%= f.fields_for :activity do |a| %>
+    <%= a.label :name %>
+    <%= a.text_field :name %>
+    <br></br>
+
+  <%= w.label :duration %>
+  <%= w.numbers_field :duration %>
+  <br></br>
+
+  <%= w.label :description %>
+  <%= w.text_field :description %>
+    <br></br>
+
+  <%= w.hidden_field :user_id, value: current_user.id %>
+    <br></br>
+
+  <% end %>
