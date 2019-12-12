@@ -14,8 +14,9 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :new, :create]
   end
   resources :events
-  resources :sessions
-  resources :locations
+  resources :locations do
+    resources :events
+  end
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

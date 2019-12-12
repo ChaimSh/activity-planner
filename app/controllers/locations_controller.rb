@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
 
   def index
-    @location = current_user.locations
+    @locations = current_user.locations
   end
 
   def show
