@@ -10,8 +10,20 @@
   </head>
 
   <body>
-
-    <%= link_to 'Logout', '/logout', :method => :delete%>
+      
+      <% if logged_in? %>
+    <nav class='navbar'>
+      <%= link_to 'Logout', '/logout', method: :delete, class:'button'%>
+      <%= link_to 'My Locations', locations_path , class:'button'%>
+      <%= link_to 'Add a Location', new_location_path , class:'button'%>
+      <%= link_to 'Add an Activity', new_activity_path , class:'button'%>
+      <%= link_to 'All Activities', activities_path, class:'button' %>
+      <%= link_to 'Add an Event', new_event_path, class:'button' %>
+      <%= link_to 'All Events', events_path, class:'button' %>
+    </nav>
+    <% else %>
+      <%= link_to 'Log In', login_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,6 +1,6 @@
-<%= f.label :activity_id, "Select an existing activity:"%>
-<%f.collection_select :activity_id, Activity.all, :id, :name, include_blank :true %>
-
+<br><%= f.label :activity_id, "Select an existing activity:"%>
+<%f.collection_select :activity_id, current_user.activities, :id, :name, include_blank: true %>
+                      
 <h3>Or Create a new Activity:</h3>
     
   <%= f.fields_for :activity do |a| %>
@@ -8,15 +8,15 @@
     <%= a.text_field :name %>
     <br></br>
 
-  <%= w.label :duration %>
-  <%= w.number_field :duration %>
+  <%= a.label :duration %>
+  <%= a.number_field :duration %>
   <br></br>
 
-  <%= w.label :description %>
-  <%= w.text_field :description %>
+  <%= a.label :description %>
+  <%= a.text_field :description %>
     <br></br>
 
-  <%= w.hidden_field :user_id, value: current_user.id %>
+  <%= a.hidden_field :user_id, value: current_user.id %>
     <br></br>
 
   <% end %>

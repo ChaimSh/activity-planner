@@ -12,7 +12,7 @@ class Event < ApplicationRecord
     
     
     def activity_attributes=(activity_params)
-      activity = Activty.find_or_create_by(activity_params)
+      activity = Activity.find_or_create_by(activity_params)
       activity_params[:name].empty? ? self.activity : self.activity = activity 
     end 
     
