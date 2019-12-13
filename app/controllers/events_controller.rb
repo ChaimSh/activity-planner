@@ -28,19 +28,21 @@ class EventsController < ApplicationController
         if params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
           @event = @activity.events.build(event_params)
         else
-          @event = Event.new(event_params)
+           @event = Event.new(event_params)
+        #    raise params.inspect
         end
-
+        #   byebug
         if @event.save
             redirect_to event_path(@event)
         else
+            raise params.inspect
             render :new
         end
     end
 
     private 
     def event_params
-      params.require(:event).permit(:name, :date, :location_id, :activity_id, activity_attributes:[:name, :description, :duration, :user_id])
+      params.require(:event).permit(:name, :date, :location_id, :activity_id, :activity_attributes => [:name, :description, :duration, :user_id])
     end
 
 

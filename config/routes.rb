@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :activities do
     resources :events, only: [:index, :new, :create]
   end
+  #see if events should be a stand alone or always be nested under locations.
   resources :events
   resources :locations do
     resources :events
