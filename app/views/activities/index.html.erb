@@ -5,8 +5,8 @@
 <%=activity.duration%> Minutes<br>
 <%=activity.description%>
 
-<%=link_to "See All Activities", activity_events_path(activity)%> | <br>
-<%= link_to "Add an Event", new_activity_event_path(activity) %>
+<%=link_to "See All Events With This Activity", activity_events_path(activity)%> | <br>
+<%= link_to "Add This Activity To A New Event", new_activity_event_path(activity) %>
 </li>
 <br><br>
 <%end%>

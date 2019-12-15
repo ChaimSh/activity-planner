@@ -4,6 +4,6 @@ class Location < ApplicationRecord
   has_many :activities, through: :events
 
   validates :name, :address, presence: :true
-  validates :name, uniqueness: true 
-  validates :address, uniqueness: true 
+  validates_uniqueness_of :name, :address, scope: :user_id 
+ 
 end
