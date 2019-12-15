@@ -1,7 +1,7 @@
 <h1>Activities</h1>
 <ul>
 <% @activities.each do |activity|%>
-<li><strong><%= activity.name%></strong>
+<li><strong><%=link_to activity.name, activity_path(activity)%></strong>
 <%=activity.duration%> Minutes<br>
 <%=activity.description%>
 

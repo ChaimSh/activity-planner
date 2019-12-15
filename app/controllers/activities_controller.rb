@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 before_action :set_activity, only: [:show]
     
   def index
-    @activities = Activity.all
+    @activities = current_user.activities
   end
 
   def show
@@ -18,6 +18,19 @@ before_action :set_activity, only: [:show]
         redirect_to activity_path(@activity)
     else
         render :new
+    end
+  end
+
+  def edit
+    @activity = Activity.find_by(id: params[:id])
+  end
+
+  def update
+    @activity = Activity.find_by(id: params[:id])
+    if @activty.update(activity_params)
+        redirect_to activity_path(@activity)
+    else
+        render :edit
     end
   end
 
