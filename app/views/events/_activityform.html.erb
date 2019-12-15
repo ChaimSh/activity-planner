@@ -1,5 +1,5 @@
 <br><%= f.label :activity_id, "Select an existing activity:"%>
-<%f.collection_select :activity_id, current_user.activities, :id, :name, include_blank: true %>
+<%=f.collection_select :activity_id, current_user.activities, :id, :name, include_blank: true %>
                       
 <h3>Or Create a new Activity:</h3>
     
