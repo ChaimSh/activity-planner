@@ -2,6 +2,6 @@ Event: <%=@event.name%>
 
 Date: <%=@event.date%>
 
-Location: <%=@event.location.name%>
+Location: <%=link_to @event.location.name, location_events_path(@event.location)%>
 
-Activity: <%=@event.activity.name%>
+Activity: <%=link_to @event.activity.name, activity_events_path(@event.activity)%>

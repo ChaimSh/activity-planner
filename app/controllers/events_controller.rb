@@ -9,7 +9,7 @@ class EventsController < ApplicationController
         #check if nested                     #find nested resource
         if params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
             @events = @activity.events
-    
+            
         else
             @events = Event.all
         end
