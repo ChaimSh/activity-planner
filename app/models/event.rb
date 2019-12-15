@@ -17,7 +17,6 @@ class Event < ApplicationRecord
     end 
     
     
-    
     def datetime
         self.date.strftime("%A, %b %d") if self.date
     end

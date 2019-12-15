@@ -1,5 +1,7 @@
 <h1>New Event</h1>
-<h3><%=@event.errors.full_messages.to_sentence%></h3>
+
+<h3><%= render partial: "layouts/errors", locals: { object: @event } %></h3>
+
 <%= form_for [@activity, @event] do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name%><br>

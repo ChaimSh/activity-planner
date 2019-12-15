@@ -10,7 +10,9 @@ module EventsHelper
      end
    end
 
-
+   def display_date(t)
+    "on #{t.datetime}" if t.date
+  end
 
 
     def activity_form_option(form_builder)
