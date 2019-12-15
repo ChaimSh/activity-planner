@@ -2,8 +2,8 @@ class Event < ApplicationRecord
     belongs_to :location
     belongs_to :activity
     # , optional: :true
-    validates :date, presence: true
-    validates_associated :activity
+    validates :name, :date, presence: true
+    validates_associated :activity, :location
     
     #already in activity.events
     scope :by_activity, -> (activity_id) {where("activity_id = ?", activity_id)}

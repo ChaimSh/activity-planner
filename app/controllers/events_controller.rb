@@ -38,7 +38,7 @@ class EventsController < ApplicationController
         if @event.save
             redirect_to event_path(@event)
         else
-            raise params.inspect
+            # raise params.inspect
             render :new
         end
     end
