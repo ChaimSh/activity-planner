@@ -1,9 +1,14 @@
 <h1>Activities</h1>
 <ul>
 <% @activities.each do |activity|%>
-<li><%=link_to activity.name, activity_path(activity)%><br>
+<li><strong><%= activity.name%></strong>
 <%=activity.duration%> Minutes<br>
-<%=activity.description%></li>
+<%=activity.description%>
+
+<%=link_to "See All Activities", activity_events_path(activity)%> | <br>
+<%= link_to "Add an Event", new_activity_event_path(activity) %>
+</li>
+<br><br>
 <%end%>
 
 </ul>

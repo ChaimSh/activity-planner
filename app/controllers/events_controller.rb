@@ -8,17 +8,17 @@ class EventsController < ApplicationController
     def index
         #check if nested                     #find nested resource
         if params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
-            raise params.inspect
+            # raise params.inspect
             @events = @activity.events
         else
-            raise params.inspect
+            # raise params.inspect
             @events = Event.all
         end
     end
 
     def new
       if params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
-        @event = activity.events.build
+        @event = @activity.events.build
       else
         @event = Event.new
         @event.build_activity
