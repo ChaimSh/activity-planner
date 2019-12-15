@@ -1,9 +1,9 @@
-<h1>All Events</h1>
+<%= display_index_header%>
 
 <ul>
 <% @events.order(:date).each do |event| %>
 <li> <%=link_to event.name, event_path(event) %><br>
     <%=event.date%> <br>
-    <%=event.location.name%></li>
+    <%=event.location.name%> <br><br></li>
     <%end%>
 </ul>
