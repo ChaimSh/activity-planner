@@ -27,7 +27,7 @@ before_action :set_activity, only: [:show]
 
   def update
     @activity = Activity.find_by(id: params[:id])
-    if @activty.update(activity_params)
+    if @activity.update(activity_params)
         redirect_to activity_path(@activity)
     else
         render :edit
