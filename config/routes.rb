@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  
+  get '/auth/google/callback' => 'sessions#omniauth'
     
   
   resources :activities do
