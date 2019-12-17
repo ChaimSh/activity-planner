@@ -1,14 +1,14 @@
 class Event < ApplicationRecord
     belongs_to :location
     belongs_to :activity
-    # , optional: :true
+    
     validates :name, :date, presence: true
     validates_associated :activity, :location
     
-    #already in activity.events
-    scope :by_activity, -> (activity_id) {where("activity_id = ?", activity_id)}
-    #scope future events
-    #number of events location has
+    
+    
+    scope :number_of_located_events, -> {joins(:location).count}
+
     
     
     def activity_attributes=(activity_params)
