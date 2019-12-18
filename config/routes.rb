@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   get '/auth/google/callback' => 'sessions#omniauth'
-    
+  get 'events/number_of_located_events' => 'events#number_of_located_events'
   
   resources :activities do
     resources :events, only: [:index, :new, :create]
