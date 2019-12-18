@@ -34,6 +34,11 @@ before_action :set_activity, only: [:show]
     end
   end
 
+  def destroy
+    @activity.destroy
+    redirect_to activities_path
+  end
+
   private
 
   def activity_params
