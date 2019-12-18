@@ -13,7 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_if_not_logged_in
-    redirect_to login_path if !logged_in? && !current_user
+    redirect_to login_path if !logged_in?
+  end
+
+  def redirect_bc_logged_in
+    if logged_in?
+      flash[:logged_in] = "Already logged in."
+      redirect_to user_path(current_user)
+    end
   end
 
 

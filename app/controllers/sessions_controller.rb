@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-    skip_before_action :redirect_if_not_logged_in, only: [:index, :new, :create]
-  def index
+   skip_before_action :redirect_if_not_logged_in, only: [:index, :new, :create]
+   before_action :redirect_bc_logged_in, only:[:index, :new, :create]
+   def index
   end
 
   def new
