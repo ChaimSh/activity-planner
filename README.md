@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Activity Planner
 
-Things you may want to cover:
+This is a Rails app to help the user be organized with planning an event. 
 
-* Ruby version
+System Dependencies
 
-* System dependencies
+Developed using Rails 6.0.0
 
-* Configuration
+Description
 
-* Database creation
+An Event Planner
 
-* Database initialization
+Users can log in and sign up using Google.
+This will take a user step by step in making an great event. Create and activity, location(with address) and event date and title.
 
-* How to run the test suite
+Installation
+Fork this project, clone it down tp a folder you'd like to have it in. Navigate to the folder of choice and run bundle isntall, rake db:migrate and rails s to start the app.
 
-* Services (job queues, cache servers, search engines, etc.)
+Contibute
+Please feel free to contribute.
 
-* Deployment instructions
+License
+This product is registered under MIT license - Copyright (c) 2019 Kirill (Chaim) Shcherbina. See ./LISENCE.
 
-* ...
+
