@@ -1,11 +1,11 @@
 <%= display_index_header%>
 
 <ul>
-<% @events.order(:date).each do |event| %>
+<% @current_user.events.order(:date).each do |event| %>
 <li> <%=link_to event.name, event_path(event) %><br>
     <%=display_date(event)%> <br>
     <%=event.location.name%> <br><br></li>
     <%end%>
 </ul>
 
-<%= link_to "Located Events", events_number_of_located_events_path%>
+<%= link_to "Number of Located Events", events_number_of_located_events_path%>

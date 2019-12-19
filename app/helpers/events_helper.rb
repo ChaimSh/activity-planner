@@ -1,12 +1,13 @@
 module EventsHelper
 
    def display_index_header
-     if @activity 
-        content_tag(:h2, "Events with #{@activity.name}")
+      
+     if @activity  
+      content_tag(:h2, "Events with #{@activity.name}")
      elsif @location
-        content_tag(:h2, "Events at #{@location.name}")
+      content_tag(:h2, "Events at #{@location.name}")
      else
-        content_tag(:h1, "All Events")
+       content_tag(:h1, "All Events")
      end
    end
 
