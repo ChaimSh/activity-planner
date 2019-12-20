@@ -1,7 +1,7 @@
 <%= display_index_header%>
 
 <ul>
-<% @current_user.events.order(:date).each do |event| %>
+<% @events.order(:date).each do |event| %>
 <li> <%=link_to event.name, event_path(event) %><br>
     <%=display_date(event)%> <br>
     <%=event.location.name%> <br><br></li>

@@ -5,8 +5,8 @@ class Event < ApplicationRecord
     validates :name, :date, presence: true
     validates_associated :activity, :location
     
-    
-    
+    # scope :by_location, -> (location_id) {where("location_id = ?", location_id)}
+    # scope :by_activity, -> (activity_id) {where("activity_id = ?", activity_id)}
     scope :number_of_located_events, -> {joins(:location).count}
 
     
