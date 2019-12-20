@@ -21,6 +21,9 @@ class Event < ApplicationRecord
         self.date.strftime("%A, %b %d") if self.date
     end
 
+    def nested_activity_find_nested_resource
+      params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
+    end
 
 
 
