@@ -13,6 +13,7 @@ class Event < ApplicationRecord
     
     def activity_attributes=(activity_params)
       activity = Activity.find_or_create_by(activity_params)
+      # make sure if valid, then assign
       activity_params[:name].empty? ? self.activity : self.activity = activity 
     end 
     
