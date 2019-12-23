@@ -1,7 +1,7 @@
 <h1>Locations</h1>
 <ul>
 <% @locations.each do |location|%>
- <li><h4><%= link_to location.name, location_path(location) %> </h4>
- <%=location.address%>
+ <li><h4><%= link_to location.name.titleize, location_path(location) %> </h4>
+ <%=location.address.titleize%>
  <%end%></li>
  <ul>
