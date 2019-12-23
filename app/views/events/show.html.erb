@@ -1,9 +1,9 @@
 
-<h3>Event: <%=@event.name%></h3>
+<h3>Event: <%=@event.name.titleize%></h3>
 <br>
 <h3>Date: <%=display_date(@event)%></h3>
 <br>
-<h3>Location: <%=link_to @event.location.name, location_events_path(@event.location)%></h3>
+<h3>Location: <%=link_to @event.location.name.titleize, location_events_path(@event.location)%></h3>
 <br>
-<h3>Activity: <%=link_to @event.activity.name, activity_events_path(@event.activity)%></h3>
+<h3>Activity: <%=link_to @event.activity.name.titleize, activity_events_path(@event.activity)%></h3>
 
