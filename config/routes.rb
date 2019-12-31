@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/auth/google/callback' => 'sessions#omniauth'
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
   get 'events/number_of_located_events' => 'events#number_of_located_events'
   
   resources :activities do
@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     resources :events
   end
   resources :users
+  resources :categories, only: [:new, :create, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
