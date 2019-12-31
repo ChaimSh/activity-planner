@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 before_action :set_activity, only: [:show]
     
   def index
-    @activities = current_user.activities
+    @activities = current_user.activities.order_by_longest_duration
   end
 
   def show
@@ -12,7 +12,7 @@ before_action :set_activity, only: [:show]
     @activity = Activity.new
   end
 
-  def create
+  def create                       
     @activity = current_user.activities.build(activity_params)
     if @activity.save
         redirect_to activity_path(@activity)

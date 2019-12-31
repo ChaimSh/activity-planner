@@ -1,5 +1,5 @@
 
-<h3><%= render partial: "layouts/errors", locals: { object: @activity } %></h3>
+<%# posting to a nested route %>
 <%= form_for [@activity, @event] do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name%><br>

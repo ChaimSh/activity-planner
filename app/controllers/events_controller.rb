@@ -13,7 +13,7 @@ class EventsController < ApplicationController
         #check if nested                     #find nested resource
         if  params[:activity_id] && @activity = Activity.find_by_id(params[:activity_id])
             @events = @activity.events
-             #  @events = current_user.events.by_activity(params[:activity_id])
+             
         elsif params[:location_id] && @location = Location.find_by_id(params[:location_id])   
             @events = @location.events
         else

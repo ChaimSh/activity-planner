@@ -3,17 +3,19 @@ class Event < ApplicationRecord
     belongs_to :activity
     
     validates :name, :date, presence: true
+    #activity/location won't save unless event is valid 
     validates_associated :activity, :location
-    
-    # scope :by_location, -> (location_id) {where("location_id = ?", location_id)}
-    # scope :by_activity, -> (activity_id) {where("activity_id = ?", activity_id)}
+   
+   
     scope :number_of_located_events, -> {joins(:location).count}
 
     
-    
+    #bringing in params from activity (the aactivityform withtin events)
     def activity_attributes=(activity_params)
       activity = Activity.find_or_create_by(activity_params)
-      # make sure if valid, then assign
+      # make sure if valid, then set that activity, if not then set the one that exists
+      # @activity.valid? ? self.activity = activity : self.activity
+      # didn't fill out params
       activity_params[:name].empty? ? self.activity : self.activity = activity 
     end 
     

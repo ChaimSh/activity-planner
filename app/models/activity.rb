@@ -7,8 +7,8 @@ class Activity < ApplicationRecord
   validates_uniqueness_of :name, scope: :user_id 
  
 
-  scope :order_by_longest_duration_first_four, -> { order(:duration).first(4) }
-  
+  scope :order_by_longest_duration, -> { order(duration: :desc) }
+  scope :duration_search, -> (search_duration){ where("duration > ?", search_duration)}
 
 
 
