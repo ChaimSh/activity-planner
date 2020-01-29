@@ -10,6 +10,10 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find_by(id: params[:id])
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @location}
+    end
   end
 
   def new
@@ -19,7 +23,10 @@ class LocationsController < ApplicationController
   def create
     @location = current_user.locations.build(location_params)
     if @location.save
-        redirect_to location_path(@location)
+      respond_to do |f|  
+      f.html {redirect_to location_path(@location)}
+      f.json {render json: @location}
+      end
     else
         render :new
     end
@@ -27,6 +34,10 @@ class LocationsController < ApplicationController
 
   def edit
     @location = Location.find_by(id: params[:id])
+    respond_to do |f|
+      f.html {render :edit}
+      f.json {render json: @location}
+    end
   end
 
   def update

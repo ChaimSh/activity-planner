@@ -3,9 +3,14 @@ before_action :set_activity, only: [:show]
     
   def index
     @activities = current_user.activities.order_by_longest_duration
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @activities}
+    end
   end
 
   def show
+    
   end
 
   def new
@@ -15,7 +20,10 @@ before_action :set_activity, only: [:show]
   def create                       
     @activity = current_user.activities.build(activity_params)
     if @activity.save
-        redirect_to activity_path(@activity)
+      respond_to do |f|  
+      f.html {redirect_to activity_path(@activity)}
+      f.json {render json: @activity}
+      end
     else
         render :new
     end
@@ -23,6 +31,10 @@ before_action :set_activity, only: [:show]
 
   def edit
     @activity = Activity.find_by(id: params[:id])
+    respond_to do |f|
+      f.html {render :edit}
+      f.json {render json: @activity}
+    end
   end
 
   def update
