@@ -6,6 +6,10 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find(params[:id])
+        respond_to do |f|
+            f.html {render :show}
+            f.json { render json: @event}
+        end
     end
 
     def index
@@ -43,7 +47,10 @@ class EventsController < ApplicationController
         end
         
         if @event.save
-            redirect_to event_path(@event)
+            respond_to do |f|
+            f.html {redirect_to event_path(@event)}
+            f.json {render json: @event}
+            end
         else
             render :new
         end
@@ -51,6 +58,10 @@ class EventsController < ApplicationController
 
     def edit
         @event = Event.find_by(id: params[:id])
+        respond_to do |f|
+            f.html {render :edit}
+            f.json { render json: @event}
+        end
     end
     
     def update

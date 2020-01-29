@@ -2,6 +2,10 @@ class LocationsController < ApplicationController
 
   def index
     @locations = current_user.locations
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @locations}
+    end
   end
 
   def show
