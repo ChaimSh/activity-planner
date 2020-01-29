@@ -20,6 +20,10 @@ class EventsController < ApplicationController
         @events = current_user.events
         # @events = Event.all
         end
+        respond_to do |f|
+            f.html {render :index}
+            f.json { render json: @events}
+        end
     end
 
     def new
