@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log('HELLO WORLD!')
     listenForClick()
 })
 
@@ -17,9 +16,9 @@ function getEvents(){
       dataType: 'json',
       success: function (data) {
         data.map(event => {
-            const newEVent = new Event(event)
+            const newEvent = new Event(event)
             const newEventHtml = newEvent.eventHTML()
-            document.getElementBy('ajax-event').innerHTML = newEventHtml
+            document.getElementById('ajax-event-' + newEvent.id).innerHTML = newEventHtml
         })   
       }
     })
