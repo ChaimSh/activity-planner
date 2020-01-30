@@ -8,3 +8,6 @@
 <h3>Activity: <%=link_to @event.activity.name.titleize, activity_events_path(@event.activity)%></h3>
 
 <h5> <%= link_to "Edit Event", edit_event_path(@event)%> </h5>
+
+<button id='events-index'>SEE ALL EVENTS</button>
+<div id='ajax-events-index'>[placeholder for all events]</div>

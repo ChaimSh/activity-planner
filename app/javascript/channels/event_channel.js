@@ -1,10 +1,18 @@
 $(document).ready(function () {
-    listenForClick()
+    listenForClickOne()
 })
 
 function listenForClick() {
-      getEvents()
-}
+    
+    $( 'button#event-data').on('click', function (e) {
+        e.preventDefault()
+        getEvents()
+   })   
+
+    $('button#events-index').on('click', function (e) {
+        e.preventDefault()
+        getEventsIndex()
+    })
 
 function getEvents(){
     $.ajax({
@@ -12,9 +20,7 @@ function getEvents(){
       method: 'get',
       dataType: 'json',
       success: function (data) {
-       $('button#event-data' + data.id).on('click', function (e) {
-            e.preventDefault()
-       })
+       
             data.map(event => {
             const newEvent = new Event(event)
             const newEventHtml = newEvent.eventHTML()
@@ -23,6 +29,24 @@ function getEvents(){
       }
     })
 }
+
+function getEventsIndex(){
+    $.ajax({
+      url: 'http://localhost:3000/events',
+      method: 'get',
+      dataType: 'json',
+      success: function (data) {
+       
+            data.map(event => {
+            const newEvent = new Event(event)
+            const newEventHtml = newEvent.eventHTML()
+            document.getElementById('ajax-events-index').innerHTML = newEventHtml
+        })   
+      }
+    })
+}
+
+
 
 class Event {
     constructor(obj) {
