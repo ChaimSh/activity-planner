@@ -3,10 +3,7 @@ $(document).ready(function () {
 })
 
 function listenForClick() {
-    $('button#event-data').on('click', function (e) {
-        e.preventDefault()
-        getEvents()
-    })
+      getEvents()
 }
 
 function getEvents(){
@@ -15,7 +12,10 @@ function getEvents(){
       method: 'get',
       dataType: 'json',
       success: function (data) {
-        data.map(event => {
+       $('button#event-data' + data.id).on('click', function (e) {
+            e.preventDefault()
+       })
+            data.map(event => {
             const newEvent = new Event(event)
             const newEventHtml = newEvent.eventHTML()
             document.getElementById('ajax-event-' + newEvent.id).innerHTML = newEventHtml
