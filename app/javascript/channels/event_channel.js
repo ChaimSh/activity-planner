@@ -22,30 +22,12 @@ function getEvents() {
           })
             $('button#events-index').on('click', function(e) {
                 e.preventDefault();
-                document.getElementById('ajax-events-index').innerHTML = newEventHtml
+                document.getElementById('ajax-events-index').innerHTML = data.forEach(element => new Event(element).eventHTML())
             })
         })   
       }
     })
 }
-
-// function getEventsIndex(){
-//     $.ajax({
-//       url: 'http://localhost:3000/events',
-//       method: 'get',
-//       dataType: 'json',
-//       success: function (data) {
-       
-//             data.map(event => {
-//             const newEvent = new Event(event)
-//             const newEventHtml = newEvent.eventHTML()
-//             document.getElementById('ajax-events-index').innerHTML = newEventHtml
-//         })   
-//       }
-//     })
-// }
-
-
 
 class Event {
     constructor(obj) {
