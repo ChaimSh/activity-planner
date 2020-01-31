@@ -1,50 +1,49 @@
 $(document).ready(function () {
-    listenForClickOne()
+    listenForClick()
 })
 
 function listenForClick() {
-    
-    $( 'button#event-data').on('click', function (e) {
-        e.preventDefault()
         getEvents()
-   })   
+   }
 
-    $('button#events-index').on('click', function (e) {
-        e.preventDefault()
-        getEventsIndex()
-    })
-
-function getEvents(){
+function getEvents() {
     $.ajax({
       url: 'http://localhost:3000/events',
       method: 'get',
       dataType: 'json',
       success: function (data) {
-       
+            
             data.map(event => {
             const newEvent = new Event(event)
             const newEventHtml = newEvent.eventHTML()
+            $( 'button#event-data-' + newEvent.id).on('click', function (e) {
+            e.preventDefault();
             document.getElementById('ajax-event-' + newEvent.id).innerHTML = newEventHtml
+          })
+            $('button#events-index').on('click', function(e) {
+                e.preventDefault();
+                document.getElementById('ajax-events-index').innerHTML = newEventHtml
+            })
         })   
       }
     })
 }
 
-function getEventsIndex(){
-    $.ajax({
-      url: 'http://localhost:3000/events',
-      method: 'get',
-      dataType: 'json',
-      success: function (data) {
+// function getEventsIndex(){
+//     $.ajax({
+//       url: 'http://localhost:3000/events',
+//       method: 'get',
+//       dataType: 'json',
+//       success: function (data) {
        
-            data.map(event => {
-            const newEvent = new Event(event)
-            const newEventHtml = newEvent.eventHTML()
-            document.getElementById('ajax-events-index').innerHTML = newEventHtml
-        })   
-      }
-    })
-}
+//             data.map(event => {
+//             const newEvent = new Event(event)
+//             const newEventHtml = newEvent.eventHTML()
+//             document.getElementById('ajax-events-index').innerHTML = newEventHtml
+//         })   
+//       }
+//     })
+// }
 
 
 
