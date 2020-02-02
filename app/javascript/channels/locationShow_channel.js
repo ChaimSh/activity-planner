@@ -57,14 +57,27 @@ class Location {
         this.id = obj.id
         this.name = obj.name
         this.address = obj.address
+        this.events = obj.events
     }
 }
 
 Location.prototype.locationHTML = function () {
+    
+    let locationEvents = this.events.map(event =>{
+        return (`
+          <p>${event.name}</p>
+        `)
+    }).join('')
+    
+    
+    
     return (`
     <div class = location>
     <h1>${this.name}</h1>
     <h2>${this.address}</h2>
+    <br>
+    <h2>Events By This Location:<h2>
+    <h3>${locationEvents}</h3>
     </div>
     `)
 }
