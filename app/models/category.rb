@@ -1,3 +1,3 @@
-class Category < ApplicationRecord
-    has_many :activities
-end
+# class Category < ApplicationRecord
+#     has_many :activities
+# end
