@@ -20,10 +20,10 @@ function getEvents() {
             e.preventDefault();
             document.getElementById('ajax-event-' + newEvent.id).innerHTML = newEventHtml
           })
-            $('button#events-index').on('click', function(e) {
-                e.preventDefault();
-                document.getElementById('ajax-events-index').innerHTML = data.forEach(element => new Event(element).eventHTML())
-            })
+            // $('button#events-index').on('click', function(e) {
+            //     e.preventDefault();
+            //     document.getElementById('ajax-events-index').innerHTML = data.forEach(element => console.log(new Event(element).eventHTML()))
+            // })
         })   
       }
     })

@@ -1,5 +1,10 @@
-<h1><%= @location.name.titleize %></h1>
 
-<h2><%=@location.address.titleize%></h2>
+<div id='location-div'>
+<h1 class='location-name'><%= @location.name.titleize %></h1>
+
+<h2 class='location-address'><%=@location.address.titleize%></h2>
 <br><br>
 <h5><%= link_to "Edit Location", edit_location_path(@location) %></h5>
+
+<a href ="#" class="location-data" data-id="<%=@location.id%>">SEE NEXT LOCATION</button>
+</div>

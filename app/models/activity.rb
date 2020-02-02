@@ -2,7 +2,7 @@ class Activity < ApplicationRecord
   has_many :events
   has_many :locations, through: :events
   belongs_to :user
-  belongs_to :category
+  # belongs_to :category
 
   validates :name, :description, :duration, presence: :true
   validates_uniqueness_of :name, scope: :user_id 
