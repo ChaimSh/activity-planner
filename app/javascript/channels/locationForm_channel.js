@@ -1,18 +1,19 @@
 $(document).ready(function () {
-   listenForNewPostFormClick()
+   listenForNewLocationFormClick()
     // editFormListener()
 })
 
 
-function listenForNewFormClick() {
+function listenForNewLocationFormClick() {
   $('button#ajax-new-location').on('click', function (event) {
       event.preventDefault()
-      let newLocationForm = Location.newPostForm()
+      let newLocationForm = Location.newLocationForm()
+      document.querySelector('div#new-location-form-div').innerHTML = newLocationForm
   })
 }
 
 class Location {
-  static newlocationForm() {
+  static newLocationForm() {
     return (`
 		<strong>New Location Form</strong>
 			<form>
