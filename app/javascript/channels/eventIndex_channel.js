@@ -1,10 +1,7 @@
 $(document).ready(function () {
-    listenForClick()
+    getEvents()
 })
 
-function listenForClick() {
-        getEvents()
-   }
 
 function getEvents() {
     $.ajax({
@@ -12,7 +9,6 @@ function getEvents() {
       method: 'get',
       dataType: 'json',
       success: function (data) {
-            
             data.map(event => {
             const newEvent = new Event(event)
             const newEventHtml = newEvent.eventHTML()
@@ -20,10 +16,6 @@ function getEvents() {
             e.preventDefault();
             document.getElementById('ajax-event-' + newEvent.id).innerHTML = newEventHtml
           })
-            // $('button#events-index').on('click', function(e) {
-            //     e.preventDefault();
-            //     document.getElementById('ajax-events-index').innerHTML = data.forEach(element => console.log(new Event(element).eventHTML()))
-            // })
         })   
       }
     })
