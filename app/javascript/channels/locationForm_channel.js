@@ -15,11 +15,13 @@ function newLocationFormListener() {
 
 
 function createNewLocation() {
-      $(document).on('submit', 'form#newLocationForm', function(e){
+      $(document).on('submit', 'form#newLocationForm', function(e) {
       var values = $(this).serialize();
       var posting =  $.post('/locations', values);
       posting.done(function(data) {
       var location = new Location(data);
+      var response = location.buildLocation({skipIndexLink: true});
+    $('div#main').html(response);
       })
     })
 }
