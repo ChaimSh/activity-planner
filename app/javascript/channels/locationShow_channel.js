@@ -1,11 +1,6 @@
 $(document).ready(function () {
-    locationListener()
     getLocation()
 })
-
-function locationListener() {
-      getLocation()
-}
 
 
 function getLocation() {
