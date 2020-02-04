@@ -28,7 +28,9 @@
 // }
 
 $(() => {
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+    $('form#location_form').on('submit', function(e) {
     e.preventDefault();
     const values = $(e.target).serialize();
     console.log('values :', values);
@@ -44,10 +46,11 @@ $(() => {
       errorMessage += respData.responseJSON.title['0'];
       $('#js-location-info').html(errorMessage)
           .addClass('open-up-error');
+      });
     });
-  };
+  // $('form').submit();
 });
-$('form').submit(handleSubmit);
+
 
 
 class Location {
