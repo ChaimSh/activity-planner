@@ -11,8 +11,10 @@ function getLocation() {
       method: 'get',
       dataType: 'json',
       success: function (data) {
+            console.log(data)
             array.push(data)
             array.map(location => {
+                console.log(location)
             const newLocation = new Location(location)
             const newLocationHtml = newLocation.locationHTML()
             $('a.location-data').on('click', function(e) {

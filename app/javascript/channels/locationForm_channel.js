@@ -6,11 +6,9 @@
 
 
 // function newLocationFormListener() {
-//   $('button#ajax-new-location').on('click', function (event) {
-//     event.preventDefault()
-//     let newLocationForm = Location.newLocationForm()
-//       document.querySelector('div#new-location-form-div').innerHTML = newLocationForm
-//   })
+//   $('#new-locations a' ).parent().append(<%= escape_javascript render(:partial => '_form') %>);
+//     // let newLocationForm = Location.newLocationForm()
+//     //   document.querySelector('div#new-location-form-div').innerHTML = newLocationForm
 // }
 
  
@@ -27,15 +25,22 @@
 //     })
 // }
 
+// $.ajax({
+//   url: 'http://localhost:3000/locations/' + id,
+//   method: 'get',
+//   dataType: 'json',
+//   success: function (data) {
+
+
 $(() => {
   // const handleSubmit = (e) => {
   //   e.preventDefault();
     $('form#location_form').on('submit', function(e) {
     e.preventDefault();
-    const values = $(e.target).serialize();
-    console.log('values :', values);
-    const postResp = $.post('/locations', values);
+    const values = $(this).serialize();
+    const postResp = $.post('/locations', values, );
     postResp.done((respData) => {
+      console.log(respData)
     var location = new Location(respData);
     const newHtml = location.newLocationHTML();
     $('#js-location-info')
@@ -56,7 +61,7 @@ $(() => {
 class Location {
   constructor(obj) {
     this.id = obj.id
-    this.name = obj.name
+    this.name = obj.name,
     this.address = obj.address 
   }
 }

@@ -23,10 +23,11 @@ class LocationsController < ApplicationController
   def create
     @location = current_user.locations.build(location_params)
     if @location.save
-      respond_to do |f|  
-      f.html {redirect_to location_path(@location)}
-      f.json {render json: @location}
-      end
+      render json: @location
+      # respond_to do |f|  
+        # f.json {render json: @location}
+        # redirect_to location_path(@location)
+      # end
     else
         render :new
     end
