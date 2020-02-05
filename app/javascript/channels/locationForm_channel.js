@@ -32,7 +32,7 @@
 //   success: function (data) {
 
 
-$(() => {
+$( newLocation = () => {
   // const handleSubmit = (e) => {
   //   e.preventDefault();
     $('form#location_form').on('submit', function(e) {
@@ -44,13 +44,13 @@ $(() => {
     var location = new Location(respData);
     const newHtml = location.newLocationHTML();
     $('#js-location-info')
-    .html(newHtml)
+    .append(newHtml)
     .addClass('open-up');
-    }).error((respData) => {
-      let errorMessage = 'There was an error: Title ';
-      errorMessage += respData.responseJSON.title['0'];
-      $('#js-location-info').html(errorMessage)
-          .addClass('open-up-error');
+    // }).error((respData) => {
+    //   let errorMessage = 'There was an error: Title ';
+    //   errorMessage += respData.responseJSON.title['0'];
+    //   $('#js-location-info').html(errorMessage)
+    //       .addClass('open-up-error');
       });
     });
   // $('form').submit();
