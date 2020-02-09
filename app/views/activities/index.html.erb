@@ -1,10 +1,9 @@
 <h1>Activities</h1>
 <ul>
-<% @activities.each do |activity|%>
+ <% @activities.each do |activity|%>
 <li><strong><%=link_to activity.name.titleize, activity_path(activity)%></strong>
 <%=activity.duration%> Minutes<br>
 <%=activity.description%>
-
 <%=link_to "See All Events With This Activity", activity_events_path(activity)%> | <br>
 <%= link_to "Add This Activity To A New Event", new_activity_event_path(activity) %>
 </li>
@@ -14,14 +13,14 @@
 <br>
 <div id="activity_div"> </div>
 
-<%# <form id="myForm" action="activities" method="post">  %>
+<form id="myForm1" action="activities" method="post"> 
 
-    <%= render "form" %>
-    <%# Name: <input type="text" name="name" /> 
+    <%# <%= render "form" %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    Name: <input type="text" name="activity[name]" /> 
     <br>
-    Duration <input type="number" name="duration">
+    Duration <input type="number" name="activity[duration]">
     <br>
-    Description: <textarea name="description"></textarea> 
-    <input type="submit" value="Submit Activity" />  %>
-<%# </form> %>
- 
+    Description: <br><textarea name="activity[description]"></textarea>} 
+    <input type="submit" value="Submit Activity" /> 
+    </form>
