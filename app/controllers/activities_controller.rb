@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
 before_action :set_activity, only: [:show]
     
   def index
+    @activity = Activity.new
     @activities = current_user.activities.order_by_longest_duration
     respond_to do |f|
       f.html {render :index}
@@ -17,7 +18,8 @@ before_action :set_activity, only: [:show]
     @activity = Activity.new
   end
 
-  def create                       
+  def create 
+    # raise params.inspect
     @activity = current_user.activities.build(activity_params)
     if @activity.save
       respond_to do |f|  
