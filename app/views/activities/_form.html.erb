@@ -11,3 +11,11 @@
 <%=f.submit%>
 
 <%end%>
+
+      <script>
+       $(function() {
+        $("form#myForm.new_activity").on("submit", function(event) {
+          event.preventDefault()
+        });
+      });
+     </script>

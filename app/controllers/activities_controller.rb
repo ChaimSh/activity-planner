@@ -16,7 +16,7 @@ before_action :set_activity, only: [:show]
 
   def new
     @activity = Activity.new
-    layout: false
+    render :new, layout: false
   end
 
   def create 

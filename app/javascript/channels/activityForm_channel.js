@@ -1,12 +1,12 @@
  
         $(document).ready(function() { 
            AcitivityButtonListener(); 
-
-        }); 
+       }); 
 
         function AcitivityButtonListener() {
            $('#activity-form-button').on('click', function(e) {
                e.preventDefault()
+             
                activityFormShipper()
            })
         }
@@ -17,10 +17,9 @@
                method: 'GET',
                datatype: 'html' 
              }).success(function (response) {
+              $('#activity-form-button').hide()
                $('#activty-form-placeholder').html(response)
              })
-
-
         }
 
         // function activity() {
