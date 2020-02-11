@@ -11,16 +11,25 @@
 <%end%>
 </ul>
 <br>
-<div id="activity_div"> </div>
+<div id="activity_div"> 
+   <h2 id="activityName"></h2>
+  <p id="activityDuration"></p>
+  <p id="activityDescription"></p>
+</div>
 
-<form id="myForm1" action="activities" method="post"> 
+<%# <form id="myForm1" action="activities" method="post"> 
 
     <%# <%= render "form" %>
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    Name: <input type="text" name="activity[name]" /> 
+    <%# <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%# Name: <input type="text" name="activity[name]" /> 
     <br>
     Duration <input type="number" name="activity[duration]">
     <br>
     Description: <br><textarea name="activity[description]"></textarea>} 
     <input type="submit" value="Submit Activity" /> 
-    </form>
+    </form> %> 
+
+    <button id="activity-form-button">New Activity</button>
+
+
+    <div id="activty-form-placeholder"></div>

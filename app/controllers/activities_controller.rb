@@ -16,17 +16,18 @@ before_action :set_activity, only: [:show]
 
   def new
     @activity = Activity.new
+    layout: false
   end
 
   def create 
     # raise params.inspect
     @activity = current_user.activities.build(activity_params)
     if @activity.save
-      respond_to do |f|
-      f.js  
-      f.html {redirect_to activity_path(@activity)}
-      f.json {render json: @activity}
-      end
+      render json: @activity, status: 201
+      # respond_to do |f|
+      # f.html {redirect_to activity_path(@activity)}
+      # f.json {render json: @activity}
+      # end
     else
         render :new
     end
@@ -58,7 +59,6 @@ before_action :set_activity, only: [:show]
 
   def activity_params
     params.require(:activity).permit(:name, :description, :duration)
-    # 
   end
 
   def set_activity
