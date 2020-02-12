@@ -1,4 +1,15 @@
 <h1>Activities</h1>
+
+<button id="activity-form-button">New Activity</button>
+
+
+<div id="activty-form-placeholder"></div>
+
+<br>
+<br>
+<br>
+
+<div id="insert-activity"></div>
 <ul>
  <% @activities.each do |activity|%>
 <li><strong><%=link_to activity.name.titleize, activity_path(activity)%></strong>
@@ -29,11 +40,9 @@
     <input type="submit" value="Submit Activity" /> 
     </form> %> 
 
-    <button id="activity-form-button">New Activity</button>
 
 
-    <div id="activty-form-placeholder"></div>
-
+    
      
 
 
