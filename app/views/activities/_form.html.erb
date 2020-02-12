@@ -47,9 +47,11 @@ class Activity {
 Activity.prototype.newActivityHTML = function () {
   return (`
   <div class='activity'>
-  <h3>${this.name}</h3>
-  <h5>${this.duration}</h5>
-  <h5>${this.description}</h5>
+  <ul>
+  <li> <strong> <a href="activities/${this.id}">${this.name}</a></strong> 
+  ${this.duration} Minutes<br>
+  ${this.description}</li>
+  </ul>
   </div>
   `)
 }
