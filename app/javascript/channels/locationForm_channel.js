@@ -1,10 +1,13 @@
-const ready = (callback => {
-  if (document.readyState != "loading") callback();
-  else document.addEventListener("DOMContentLoaded", callback);
-})
+// const ready = (callback => {
+//   if (document.readyState != "loading") callback();
+//   else document.addEventListener("DOMContentLoaded", callback);
+// })
 
+$(document).ready(function() { 
+  activityFormShipper(); 
+}); 
 
-ready(() => {
+activityFormShipper = () => {
   document.getElementById("new-location-button").addEventListener("click", (e) => {
       e.preventDefault()
       let url = "locations/new" 
@@ -18,31 +21,13 @@ ready(() => {
         document.getElementById("new-location-button").style.display = "none"
       })  
   }); 
-})
-
-
-
-
-
-
-
-
-class Location {
-  constructor(obj) {
-    this.id = obj.id
-    this.name = obj.name,
-    this.address = obj.address 
-  }
 }
 
-Location.prototype.newLocationHTML = function () {
-  return (`
-  <div class='location'>
-  <h3>${this.name}</h3>
-  <h5>${this.address}</h5>
-  </div>
-  `)
-}
+// document.querySelector("button#hello").addEventListener("click", (e) => {
+//   e.preventDefault()
+//   alert("hello")
+// })
+
 
 //    static newLocationForm() {
 //      return (`

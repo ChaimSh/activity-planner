@@ -10,3 +10,57 @@
   <%= f.submit%>
 
 <% end %>
+
+<button id="hello">Button</button>
+
+<script>
+$(function() {
+        $("button#hello").on("click", function(event) {
+          event.preventDefault()
+          alert("hello")
+        })
+})
+// const ready = (callback => {
+//   if (document.readyState != "loading") callback();
+//   else document.addEventListener("DOMContentLoaded", callback);
+// })
+
+
+// ready(() => {
+//   // document.querySelector("form#location_form.new_location").addEventListener("submit", (e) => {
+//       document.querySelector("button#hello").addEventListener("click", (e) => {
+//       e.preventDefault()
+//       alert("hello")
+
+//   })
+// })
+  
+
+// document.onreadystatechange = function () {
+//     if (document.readyState == "interactive") {
+//       document.querySelector("button#hello").addEventListener("click", (e) => {
+//       e.preventDefault()
+//       alert("hello")
+
+//   })  
+//     }
+// }
+
+
+// class Location {
+//   constructor(obj) {
+//     this.id = obj.id
+//     this.name = obj.name,
+//     this.address = obj.address 
+//   }
+// }
+
+// Location.prototype.newLocationHTML = function () {
+//   return (`
+//   <div class='location'>
+//   <h3>${this.name}</h3>
+//   <h5>${this.address}</h5>
+//   </div>
+//   `)
+// }
+</script>
