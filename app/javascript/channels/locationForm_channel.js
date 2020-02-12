@@ -2,39 +2,7 @@
 //     newLocationFormListener()
 //     createNewLocation()
 //     // editFormListener()
-// })
-
-
-// function newLocationFormListener() {
-//   $('#new-locations a' ).parent().append(<%= escape_javascript render(:partial => '_form') %>);
-//     // let newLocationForm = Location.newLocationForm()
-//     //   document.querySelector('div#new-location-form-div').innerHTML = newLocationForm
-// }
-
- 
-// function createNewLocation() {
-//       $('form#new-location-form').on('submit', function(e) {
-//       e.preventDefault();
-//       var values = $(this).serialize();
-//       var posting =  $.post('/locations', values);
-//       posting.done(function(data) {
-//       var location = new Location(data);
-//       var response = location.buildLocation({skipIndexLink: true});
-//       $('div#new-locations').html(response);
-//       })
-//     })
-// }
-
-// $.ajax({
-//   url: 'http://localhost:3000/locations/' + id,
-//   method: 'get',
-//   dataType: 'json',
-//   success: function (data) {
-
-
 $( newLocation = () => {
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
     $('form#location_form').on('submit', function(e) {
     e.preventDefault();
     const values = $(this).serialize();
