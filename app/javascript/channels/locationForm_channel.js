@@ -8,8 +8,15 @@ ready(() => {
   document.getElementById("new-location-button").addEventListener("click", (e) => {
       e.preventDefault()
       let url = "locations/new" 
-      let form = fetch(url)
-      document.querySelector("#location-form-placeholder").appendChild(form)
+      const mainContainer = document.querySelector("#location-form-placeholder")
+      return fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const z = document.createElement('div');
+        z.innerHTML = data;
+        mainContainer.appendChild(z);
+        document.getElementById("new-location-button").style.display = "none"
+      })  
   }); 
 })
 
