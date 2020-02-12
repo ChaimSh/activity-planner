@@ -25,9 +25,32 @@
               type: request_method,
               data: form_data
           }).done(function(response){
-              console.log(response)
-              $("#insert-activity").append(response);
+               var activity = new Activity(response);
+               const newHtml = activity.newActivityHTML();
+              $("#insert-activity").append(newHtml);
+              $('#activty-form-placeholder').html('')
+              $("#activity-form-button").show();
           });
         });
       });
+
+
+class Activity {
+  constructor(obj) {
+    this.id = obj.id
+    this.name = obj.name,
+    this.description = obj.description
+    this.duration = obj.duration 
+  }
+}
+
+Activity.prototype.newActivityHTML = function () {
+  return (`
+  <div class='activity'>
+  <h3>${this.name}</h3>
+  <h5>${this.duration}</h5>
+  <h5>${this.description}</h5>
+  </div>
+  `)
+}
      </script>
