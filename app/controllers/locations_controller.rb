@@ -18,6 +18,7 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    render :new, layout: false
   end
   
   def create

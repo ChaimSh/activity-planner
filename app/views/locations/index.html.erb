@@ -1,4 +1,8 @@
 <h1>Locations</h1>
+
+  <button id="new-location-button">New Location</button>
+
+   <div id="location-form-placeholder"></div>
 <div id=main>
 <ul>
 <% @locations.each do |location|%>
@@ -11,6 +15,6 @@
 <br><br>
 <button id='ajax-new-location'> NEW LOCATION </button>
 <div id='new-location-form-div'> </div> %>
-<div id="new-locations">
+<%# <div id="new-locations">
 <%= link_to 'New Location', new_location_path %>
-</div>
+<%# </div> %>

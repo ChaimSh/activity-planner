@@ -1,28 +1,22 @@
-// $(document).ready(function () {
-//     newLocationFormListener()
-//     createNewLocation()
-//     // editFormListener()
-$( newLocation = () => {
-    $('form#location_form').on('submit', function(e) {
-    e.preventDefault();
-    const values = $(this).serialize();
-    const postResp = $.post('/locations', values, );
-    postResp.done((respData) => {
-      console.log(respData)
-    var location = new Location(respData);
-    const newHtml = location.newLocationHTML();
-    $('#js-location-info')
-    .append(newHtml)
-    .addClass('open-up');
-    // }).error((respData) => {
-    //   let errorMessage = 'There was an error: Title ';
-    //   errorMessage += respData.responseJSON.title['0'];
-    //   $('#js-location-info').html(errorMessage)
-    //       .addClass('open-up-error');
-      });
-    });
-  // $('form').submit();
-});
+const ready = (callback => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+})
+
+
+ready(() => {
+  document.getElementById("new-location-button").addEventListener("click", (e) => {
+      e.preventDefault()
+      let url = "locations/new" 
+      let form = fetch(url)
+      document.querySelector("#location-form-placeholder").appendChild(form)
+  }); 
+})
+
+
+
+
+
 
 
 
@@ -75,3 +69,32 @@ Location.prototype.newLocationHTML = function () {
 //     var values = $(this).serialize();
 //     var id = parseInt($("a.location-data").attr("data-id"));
 // }
+
+
+// // $(document).ready(function () {
+// //     newLocationFormListener()
+// //     createNewLocation()
+// //     // editFormListener()
+// $( newLocation = () => {
+//     $('form#location_form').on('submit', function(e) {
+//     e.preventDefault();
+//     const values = $(this).serialize();
+//     const postResp = $.post('/locations', values, );
+//     postResp.done((respData) => {
+//       console.log(respData)
+//     var location = new Location(respData);
+//     const newHtml = location.newLocationHTML();
+//     $('#js-location-info')
+//     .append(newHtml)
+//     .addClass('open-up');
+//     // }).error((respData) => {
+//     //   let errorMessage = 'There was an error: Title ';
+//     //   errorMessage += respData.responseJSON.title['0'];
+//     //   $('#js-location-info').html(errorMessage)
+//     //       .addClass('open-up-error');
+//       });
+//     });
+//   // $('form').submit();
+// });
+
+

@@ -4,13 +4,12 @@
 <% @events.order(:date).each do |event| %>
 <li> <%=link_to event.name.titleize, event_path(event) %><br>
       <button id='event-data-<%=event.id%>'>SEE EVENT</button>
-      <div id='ajax-event-<%= event.id %>'>[placeholder for event]</div>
+      <div id='ajax-event-<%= event.id %>'></div>
     <%# <%=display_date(event)%> 
     <%# <%=event.location.name.titleize%> <br><br>
     </li>
     <%end%>
-</ul>
-
+<br>
 
 
 
