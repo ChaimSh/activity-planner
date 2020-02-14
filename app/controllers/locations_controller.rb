@@ -18,17 +18,17 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
-    render :new, layout: false
+    # render :new, layout: false
   end
   
   def create
     @location = current_user.locations.build(location_params)
     if @location.save
-      render json: @location
-      # respond_to do |f|  
-        # f.json {render json: @location}
-        # redirect_to location_path(@location)
-      # end
+      # render json: @location
+      respond_to do |f| 
+        f.html {redirect_to locations_path} 
+        f.json {render json: @location}
+      end
     else
         render :new
     end

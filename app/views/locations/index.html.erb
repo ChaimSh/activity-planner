@@ -1,6 +1,19 @@
 <h1>Locations</h1>
-
-  <button id="new-location-button">New Location</button>
+<br>
+<br>
+<br>
+<form id="super_location_form">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<label for="name">Name</label>
+<input type='text' name = "location[name]" id="location_name">
+<br>
+<label for="address">Address</label>
+<input type='text' name = "location[address]" id="location_address">
+<button type='submit'>Submit</button>
+<br>
+<br>
+<br>
+  <%# <button id="new-location-button">New Location</button> %>
 
    <div id="location-form-placeholder"></div>
 <div id=main>
@@ -18,4 +31,75 @@
 <%# <div id="new-locations">
 <%= link_to 'New Location', new_location_path %>
 <%# </div> %>
+
+
+
+
+
+<script>
+
+
+// document.onreadystatechange = function () {
+//     if (document.readyState == "interactive") {
+//       document.querySelector("button#hello").addEventListener("click", (e) => {
+//       e.preventDefault()
+//       alert("hello")
+//   })  
+//     }
+// }
+
+const locationForm = document.getElementById('super_location_form');
+
+locationForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  
+  const formData = new FormData(locationForm);
+
+  fetch( "locations",{
+    method: 'POST',
+    body: formData
+  }).then(function (response) {
+    return response.text();
+  }).then(function (text){
+     const mainContainer = document.querySelector("#location-form-placeholder")
+     const z = document.createElement('div');
+     z.innerHTML = text;
+     mainContainer.appendChild(z);
+  }).catch( function (error) {
+    console.error(error);
+  })
+
+})
+
+// location_form.onsubmit = async (e) => {
+//     e.preventDefault();
+
+//     let response = await fetch('/locations', {
+//       method: 'POST',
+//       body: new FormData(location_form)
+//     });
+
+//     let result = await response.json();
+
+//     alert(result.message);
+//   };
+
+
+class Location {
+  constructor(obj) {
+    this.id = obj.id
+    this.name = obj.name,
+    this.address = obj.address 
+  }
+}
+
+Location.prototype.newLocationHTML = function () {
+  return (`
+  <div class='location'>
+  <h3>${this.name}</h3>
+  <h5>${this.address}</h5>
+  </div>
+  `)
+}
+</script>
 

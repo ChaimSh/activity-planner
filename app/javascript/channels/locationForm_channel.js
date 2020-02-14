@@ -3,25 +3,25 @@
 //   else document.addEventListener("DOMContentLoaded", callback);
 // })
 
-$(document).ready(function() { 
-  activityFormShipper(); 
-}); 
+// $(document).ready(function() { 
+//   activityFormShipper(); 
+// }); 
 
-activityFormShipper = () => {
-  document.getElementById("new-location-button").addEventListener("click", (e) => {
-      e.preventDefault()
-      let url = "locations/new" 
-      const mainContainer = document.querySelector("#location-form-placeholder")
-      return fetch(url)
-      .then(response => response.text())
-      .then(data => {
-        const z = document.createElement('div');
-        z.innerHTML = data;
-        mainContainer.appendChild(z);
-        document.getElementById("new-location-button").style.display = "none"
-      })  
-  }); 
-}
+// activityFormShipper = () => {
+//   document.getElementById("new-location-button").addEventListener("click", (e) => {
+//       e.preventDefault()
+//       let url = "locations/new" 
+//       const mainContainer = document.querySelector("#location-form-placeholder")
+//       return fetch(url)
+//       .then(response => response.text())
+//       .then(data => {
+//         const z = document.createElement('div');
+//         z.innerHTML = data;
+//         mainContainer.appendChild(z);
+//         document.getElementById("new-location-button").style.display = "none"
+//       })  
+//   }); 
+// }
 
 // document.querySelector("button#hello").addEventListener("click", (e) => {
 //   e.preventDefault()
