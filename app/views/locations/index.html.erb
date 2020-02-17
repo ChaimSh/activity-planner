@@ -2,6 +2,7 @@
 <br>
 <br>
 <br>
+<h3>Create A New Location:</h3>
 <form id="super_location_form">
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 <label for="name">Name</label>
@@ -10,6 +11,7 @@
 <label for="address">Address</label>
 <input type='text' name = "location[address]" id="location_address">
 <button type='submit'>Submit</button>
+</form>
 <br>
 <br>
 <br>
@@ -38,16 +40,6 @@
 
 <script>
 
-
-// document.onreadystatechange = function () {
-//     if (document.readyState == "interactive") {
-//       document.querySelector("button#hello").addEventListener("click", (e) => {
-//       e.preventDefault()
-//       alert("hello")
-//   })  
-//     }
-// }
-
 const locationForm = document.getElementById('super_location_form');
 
 locationForm.addEventListener('submit', (e) => {
@@ -55,34 +47,24 @@ locationForm.addEventListener('submit', (e) => {
   
   const formData = new FormData(locationForm);
 
-  fetch( "locations",{
+  fetch( "locations.json",{
     method: 'POST',
     body: formData
   }).then(function (response) {
-    return response.text();
+    return response.json();
   }).then(function (text){
+     const locationText = new Location(text)
+     const newLocationText = locationText.newLocationHTML()
      const mainContainer = document.querySelector("#location-form-placeholder")
      const z = document.createElement('div');
-     z.innerHTML = text;
+     z.innerHTML = newLocationText;
      mainContainer.appendChild(z);
+     document.querySelector("#super_location_form").reset()
   }).catch( function (error) {
     console.error(error);
   })
 
 })
-
-// location_form.onsubmit = async (e) => {
-//     e.preventDefault();
-
-//     let response = await fetch('/locations', {
-//       method: 'POST',
-//       body: new FormData(location_form)
-//     });
-
-//     let result = await response.json();
-
-//     alert(result.message);
-//   };
 
 
 class Location {
@@ -96,8 +78,11 @@ class Location {
 Location.prototype.newLocationHTML = function () {
   return (`
   <div class='location'>
-  <h3>${this.name}</h3>
-  <h5>${this.address}</h5>
+  <ul>
+  <li> <strong> <h4> <a href="locations/${this.id}">${this.name}</a></h4></strong>
+  <br>
+  ${this.address}</li>
+  </ul>
   </div>
   `)
 }
