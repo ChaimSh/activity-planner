@@ -1,5 +1,9 @@
 <h1>Locations</h1>
 <br>
+<button id="location_sorter">Sort Locations</button>
+
+
+
 <br>
 <br>
 <h3>Create A New Location:</h3>
@@ -33,8 +37,6 @@
 <%# <div id="new-locations">
 <%= link_to 'New Location', new_location_path %>
 <%# </div> %>
-
-
 
 
 
@@ -86,5 +88,35 @@ Location.prototype.newLocationHTML = function () {
   </div>
   `)
 }
+
+const locationSorter = document.getElementById('location_sorter');
+locationSorter.addEventListener('click', (e) => {
+  locationSorting()
+})
+
+function locationSorting() {
+  $.ajax({
+    url:"/locations",
+    method: 'GET',
+    dataType: 'json',
+    success: function (data) {
+      data.sort(function(a, b) {
+        var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        // names must be equal
+        return 0;
+      });
+      console.log(data)
+    }
+  })
+}
+
 </script>
 
