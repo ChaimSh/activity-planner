@@ -122,11 +122,9 @@ function locationSorting() {
        const array = data.map( dat => dat.name)
         // console.log(array)
         for (const element of array) {
-        const mainContainer = document.querySelector("#location-form-placeholder")
-        const z = document.createElement('div');
+        const z = document.createElement('div')
         z.innerHTML = element;
-        mainContainer.appendChild(z);
-        const locationSorter = document.getElementById('location_sorter');
+        document.querySelector("#location-form-placeholder").appendChild(z);
         }
     }
   })
