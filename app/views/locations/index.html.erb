@@ -71,6 +71,7 @@ locationForm.addEventListener('submit', (e) => {
 
 class Location {
   constructor(obj) {
+    console.log(obj)
     this.id = obj.id
     this.name = obj.name,
     this.address = obj.address 
@@ -91,7 +92,12 @@ Location.prototype.newLocationHTML = function () {
 
 const locationSorter = document.getElementById('location_sorter');
 locationSorter.addEventListener('click', (e) => {
+  const mainContainer = document.querySelector("#location-form-placeholder")
+  if (mainContainer.innerHTML === ""){
   locationSorting()
+  } else {
+    document.getElementById('location-form-placeholder').innerHTML = ""
+  }
 })
 
 function locationSorting() {
@@ -113,7 +119,15 @@ function locationSorting() {
         // names must be equal
         return 0;
       });
-      console.log(data)
+       const array = data.map( dat => dat.name)
+        // console.log(array)
+        for (const element of array) {
+        const mainContainer = document.querySelector("#location-form-placeholder")
+        const z = document.createElement('div');
+        z.innerHTML = element;
+        mainContainer.appendChild(z);
+        const locationSorter = document.getElementById('location_sorter');
+        }
     }
   })
 }
