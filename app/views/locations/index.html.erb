@@ -1,9 +1,10 @@
-<h1>Locations</h1>
+<h1>My Locations Page</h1>
 <br>
+<h3>Press Button to See Locations Sorted:</h3>
 <button id="location_sorter">Sort Locations</button>
-
-
-
+<br>
+<br>
+ <div id="location-sort-placeholer"></div>
 <br>
 <br>
 <h3>Create A New Location:</h3>
@@ -23,6 +24,9 @@
 
    <div id="location-form-placeholder"></div>
 <div id=main>
+<br>
+<br>
+<h3>My Locations:</h3>
 <ul>
 <% @locations.each do |location|%>
  <li><h4><%= link_to location.name.titleize, location_path(location) %> </h4>
@@ -92,11 +96,11 @@ Location.prototype.newLocationHTML = function () {
 
 const locationSorter = document.getElementById('location_sorter');
 locationSorter.addEventListener('click', (e) => {
-  const mainContainer = document.querySelector("#location-form-placeholder")
+  const mainContainer = document.querySelector("#location-sort-placeholer")
   if (mainContainer.innerHTML === ""){
   locationSorting()
   } else {
-    document.getElementById('location-form-placeholder').innerHTML = ""
+    document.getElementById('location-sort-placeholer').innerHTML = ""
   }
 })
 
@@ -119,12 +123,14 @@ function locationSorting() {
         // names must be equal
         return 0;
       });
-       const array = data.map( dat => dat.name)
+       const array = data.map( dat => 
+       '<ul>' + '<li>' + dat.name + '</li>' + '</ul>' 
+       )
         // console.log(array)
         for (const element of array) {
         const z = document.createElement('div')
         z.innerHTML = element;
-        document.querySelector("#location-form-placeholder").appendChild(z);
+        document.querySelector("#location-sort-placeholer").appendChild(z);
         }
     }
   })

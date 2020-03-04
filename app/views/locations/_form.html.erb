@@ -13,68 +13,6 @@
 
 <button id="hello">Button</button>
 
-<script>
-
-
-// document.onreadystatechange = function () {
-//     if (document.readyState == "interactive") {
-//       document.querySelector("button#hello").addEventListener("click", (e) => {
-//       e.preventDefault()
-//       alert("hello")
-//   })  
-//     }
-// }
-
-const locationForm = document.getElementById('location_form');
-
-locationForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-  
-  const formData = new FormData(locationForm);
-
-  return fetch( locationForm.action,{
-    method: locationForm.method,
-    body: FormData
-  }).then(function (response) {
-    return response;
-  }).then(function (text){
-     console.log(text)
-  })
-
-})
-
-// location_form.onsubmit = async (e) => {
-//     e.preventDefault();
-
-//     let response = await fetch('/locations', {
-//       method: 'POST',
-//       body: new FormData(location_form)
-//     });
-
-//     let result = await response.json();
-
-//     alert(result.message);
-//   };
-
-
-class Location {
-  constructor(obj) {
-    this.id = obj.id
-    this.name = obj.name,
-    this.address = obj.address 
-  }
-}
-
-Location.prototype.newLocationHTML = function () {
-  return (`
-  <div class='location'>
-  <h3>${this.name}</h3>
-  <h5>${this.address}</h5>
-  </div>
-  `)
-}
-</script>
-
 
 
 
