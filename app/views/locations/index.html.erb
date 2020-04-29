@@ -1,12 +1,6 @@
 <h1>My Locations Page</h1>
 <br>
-<h3>Press Button to See Locations Sorted:</h3>
-<button id="location_sorter">Sort Locations</button>
-<br>
-<br>
- <div id="location-sort-placeholer"></div>
-<br>
-<br>
+
 <h3>Create A New Location:</h3>
 <form id="super_location_form">
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -26,7 +20,7 @@
 <div id=main>
 <br>
 <br>
-<h3>My Locations:</h3>
+<%# <h3>My Locations:</h3> %>
 <ul>
 <% @locations.each do |location|%>
  <li><h4><%= link_to location.name.titleize, location_path(location) %> </h4>
@@ -41,8 +35,15 @@
 <%# <div id="new-locations">
 <%= link_to 'New Location', new_location_path %>
 <%# </div> %>
-
-
+<br>
+<br>
+<h5>Press Button to See Locations Sorted:</h5>
+<button id="location_sorter">Sort Locations</button>
+<br>
+<br>
+ <div id="location-sort-placeholer"></div>
+<br>
+<br>
 
 <script>
 
