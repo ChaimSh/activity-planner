@@ -17,13 +17,13 @@
       <% if logged_in? %>
 
     <nav class='navbar'>
-      <%= link_to 'Logout', '/logout', method: :delete%>
       <%= link_to 'My Locations', locations_path%>
-      <%= link_to 'Add a Location', new_location_path %>
-      <%= link_to 'Add an Activity', new_activity_path%>
-      <%= link_to 'All Activities', activities_path %>
+      <%# <%= link_to 'Add a Location', new_location_path %>
+      <%# <%= link_to 'Add an Activity', new_activity_path%>
+      <%= link_to 'My Activities', activities_path %>
       <%= link_to 'Add an Event', new_event_path %>
-      <%= link_to 'All Events', events_path%>
+      <%= link_to 'My Events', events_path%>
+      <%= link_to 'Logout', '/logout', method: :delete%>
     </nav>
     <% else %>
       <%= link_to 'Log In', login_path %>

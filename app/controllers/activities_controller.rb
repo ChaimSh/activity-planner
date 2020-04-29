@@ -25,8 +25,8 @@ before_action :set_activity, only: [:show]
     if @activity.save
       render json: @activity, status: 201
       # respond_to do |f|
-      # f.html {redirect_to activity_path(@activity)}
       # f.json {render json: @activity}
+      # f.html {redirect_to activity_path(@activity)}
       # end
     else
         render :new

@@ -1,18 +1,31 @@
+<style> 
+    body {
+      background-color: lightyellow; 
+    }
+
+    form {
+      /* display: flex; */
+      justify-content: center;
+      /* align-items: center; */
+    }
+  </style>
+
+
 <%= form_for @activity, html: {id: :myForm } do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name, required:true %><br />
-
+<br>
 <%=f.label :duration, "Duration in Minutes"%>
 <%=f.number_field :duration, required:true%><br />
-
+<br>
 <%=f.label :description%>
 <%=f.text_field :description, required:true%>
-
+<br>
 <%=f.submit%>
-
+<br>
 <%end%>
 
-      <script>
+      <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
        $(function() {
         $("form#myForm.new_activity").on("submit", function(event) {
           event.preventDefault()
