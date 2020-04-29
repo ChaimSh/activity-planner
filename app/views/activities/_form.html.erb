@@ -24,8 +24,8 @@
 <%=f.submit%>
 <br>
 <%end%>
-
-      <script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+ 
+      <script>
        $(function() {
         $("form#myForm.new_activity").on("submit", function(event) {
           event.preventDefault()
@@ -72,3 +72,7 @@ Activity.prototype.newActivityHTML = function () {
   `)
 }
      </script>
+
+
+
+      <%# src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" %>
