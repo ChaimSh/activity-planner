@@ -1,30 +1,31 @@
 # README
 
-ACTIVITY PLANNER
+# ACTIVITY PLANNER
 
 This app is designed to help users be organized with planning an event. 
 
-YouTube Demo - https://www.youtube.com/watch?v=nQQGzBgBen4&t=25s
+## YouTube Demo - 
+https://www.youtube.com/watch?v=nQQGzBgBen4&t=25s
 
-Languages:
+## Languages:
 Mainly based on Rails backend and includes Javascript frontend features. 
 
-System Dependencies:
+## System Dependencies:
 Developed using Rails 6.0.0
 
-Detailed Description: 
+## Detailed Description: 
 An Event Planner
 
 Users can log in and sign up using Google.
 This will take a user step by step in making an great event. Create and activity, location(with address) and event date and title.
 
-Installation: 
+## Installation: 
 Fork this project, clone it down to a folder you'd like to have it in. Navigate to the folder of choice and run bundle isntall, rake db:migrate and rails s to start the app.
 
-Contibute: 
+## Contibuting: 
 Please feel free to contribute.
 
-License: 
+## License: 
 This product is registered under MIT license - Copyright (c) 2019 Kirill (Chaim) Shcherbina. See ./LISENCE.
 
 
