@@ -1,5 +1,3 @@
-# README
-
 # ACTIVITY PLANNER
 
 This app is designed to help users be organized with planning an event. 
