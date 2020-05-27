@@ -20,7 +20,7 @@ This will take a user step by step in making a great event. Create an activity, 
 ## Installation
 Fork this project, clone it down to a folder you'd like to have it in. Navigate to the folder of choice and run bundle isntall, rake db:migrate and rails s to start the app.
 
-## Contibuting 
+## Contributing 
 Please feel free to contribute.
 
 ## License
