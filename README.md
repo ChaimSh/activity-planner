@@ -3,7 +3,7 @@
 This app is designed to help users be organized with planning an event. 
 
 ## YouTube Demo
-https://www.youtube.com/watch?v=nQQGzBgBen4&t=25s
+https://www.youtube.com/watch?v=nQQGzBgBen4&t
 
 ![Activityplanner](https://github.com/ChaimSh/activity-planner/blob/master/lib/ezgif.com-video-to-gif%20(5).gif?raw=true)
 
